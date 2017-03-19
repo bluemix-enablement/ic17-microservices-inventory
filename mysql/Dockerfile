@@ -1,4 +1,4 @@
-FROM mysql
+FROM mysql:5.7.16
 
 ARG server_id=1
 ARG master_ip
@@ -33,3 +33,4 @@ RUN chmod u+x /root/scripts/*.sh
 
 ENTRYPOINT ["/root/scripts/docker-entrypoint-wrapper.sh"]
 CMD ["mysqld"]
+ADD my.cnf /etc/my.cnf
