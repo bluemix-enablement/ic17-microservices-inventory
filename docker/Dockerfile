@@ -1,4 +1,4 @@
-FROM openjdk:8
+FROM mysql:5.7.16
 VOLUME /tmp
 ADD app.jar app.jar
 RUN bash -c 'touch /app.jar'
@@ -22,3 +22,4 @@ RUN wget https://download.newrelic.com/newrelic/java-agent/newrelic-agent/curren
 COPY startup.sh startup.sh
 EXPOSE 8080
 ENTRYPOINT ["./startup.sh"]
+ADD my.cnf /etc/my.cnf
